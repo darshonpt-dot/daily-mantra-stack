@@ -1,0 +1,2514 @@
+<!DOCTYPE html>
+<!-- saved from url=(0115)#sun -->
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>🔱 Darshan — Final Remedy Stack V2</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap'); :root {
+                --gold: #b8860b;
+                --gold-l: #d4a017;
+                --gold-bg: #fff8e7;
+                --gold-border: #f5d87a;
+                --pur: #5b2d8e;
+                --pur-l: #7b4db4;
+                --pur-bg: #f5f0ff;
+                --pur-border: #d0b8f0;
+                --red: #c0392b;
+                --red-bg: #fff2f2;
+                --grn: #1a7a3e;
+                --grn-bg: #f0fff4;
+                --blu: #1a4fa0;
+                --blu-bg: #f0f6ff;
+                --text: #1a1a2e;
+                --muted: #66668a;
+                --border: #e0d8f0;
+                --white: #fff;
+                --page: #f8f5ff;
+            }
+
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                background: var(--page);
+                color: var(--text);
+                font-family: 'Inter',sans-serif;
+                font-size: 15px;
+                line-height: 1.7;
+                -webkit-text-size-adjust: 100%;
+            }
+
+            /* HERO */
+            .hero {
+                background: linear-gradient(135deg,#1e0f4a 0%,#5b2d8e 55%,#1e0f4a 100%);
+                text-align: center;
+                padding: 48px 20px 36px;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .hero::after {
+                content: '🔱';
+                position: absolute;
+                font-size: 240px;
+                opacity: .05;
+                top: -40px;
+                left: 50%;
+                transform: translateX(-50%);
+                pointer-events: none;
+            }
+
+            .hero h1 {
+                font-family: 'Cinzel',serif;
+                font-size: 1.9em;
+                color: #f5d87a;
+                letter-spacing: 2px;
+                margin-bottom: 8px;
+                position: relative;
+            }
+
+            .hero .sub {
+                color: #cdb8f0;
+                font-size: .82em;
+                letter-spacing: 1.5px;
+                text-transform: uppercase;
+                position: relative;
+            }
+
+            .hero .chip {
+                display: inline-block;
+                margin-top: 14px;
+                background: rgba(245,216,122,.15);
+                border: 1px solid rgba(245,216,122,.5);
+                border-radius: 30px;
+                padding: 6px 22px;
+                font-size: .8em;
+                color: #f5d87a;
+                position: relative;
+            }
+
+            .notice {
+                background: #fffdf0;
+                border-left: 5px solid var(--gold-l);
+                padding: 12px 20px;
+                font-size: .83em;
+                color: #7a5a00;
+            }
+
+            /* NAV */
+            .nav {
+                background: var(--white);
+                border-bottom: 2px solid var(--border);
+                padding: 0 10px;
+                display: flex;
+                flex-wrap: wrap;
+                position: sticky;
+                top: 0;
+                z-index: 100;
+                box-shadow: 0 2px 8px rgba(91,45,142,.1);
+            }
+
+            .nav a {
+                display: inline-block;
+                padding: 11px 11px;
+                font-family: 'Cinzel',serif;
+                font-size: .68em;
+                font-weight: 600;
+                color: var(--pur);
+                text-decoration: none;
+                border-bottom: 3px solid transparent;
+                transition: all .2s;
+                white-space: nowrap;
+            }
+
+            .nav a:hover,.nav a:active {
+                color: var(--gold-l);
+                border-bottom-color: var(--gold-l);
+                background: var(--gold-bg);
+            }
+
+            .container {
+                max-width: 1120px;
+                margin: 0 auto;
+                padding: 28px 14px 70px;
+            }
+
+            /* TODAY STRIP */
+            .today-wrap {
+                background: var(--white);
+                border: 2px solid var(--pur-border);
+                border-radius: 14px;
+                padding: 16px;
+                margin-bottom: 32px;
+                scroll-margin-top: 60px;
+            }
+
+            .today-title {
+                font-family: 'Cinzel',serif;
+                font-size: .85em;
+                color: var(--pur);
+                margin-bottom: 12px;
+                letter-spacing: 1px;
+            }
+
+            .day-strip {
+                display: grid;
+                grid-template-columns: repeat(7,1fr);
+                gap: 6px;
+            }
+
+            .day-btn {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 10px 4px;
+                border-radius: 10px;
+                text-decoration: none;
+                border: 1.5px solid var(--border);
+                background: var(--white);
+                transition: all .2s;
+                cursor: pointer;
+            }
+
+            .day-btn:hover,.day-btn:active {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(91,45,142,.2);
+            }
+
+            .day-btn .emoji {
+                font-size: 1.4em;
+                margin-bottom: 3px;
+            }
+
+            .day-btn .dname {
+                font-family: 'Cinzel',serif;
+                font-size: .62em;
+                font-weight: 700;
+                color: var(--pur);
+            }
+
+            .day-btn .dsub {
+                font-size: .58em;
+                color: var(--muted);
+            }
+
+            .d-sun-btn {
+                background: #fff9f0;
+                border-color: #f5d87a;
+            }
+
+            .d-mon-btn {
+                background: #f0fcff;
+                border-color: #7dd4e0;
+            }
+
+            .d-tue-btn {
+                background: #fff5f5;
+                border-color: #f5b8b8;
+            }
+
+            .d-wed-btn {
+                background: #f0fff4;
+                border-color: #86d4a0;
+            }
+
+            .d-thu-btn {
+                background: #fffdf0;
+                border-color: #f5d87a;
+            }
+
+            .d-fri-btn {
+                background: #fff0f8;
+                border-color: #f0a0c8;
+            }
+
+            .d-sat-btn {
+                background: #f5f5f5;
+                border-color: #aaa;
+            }
+
+            /* SECTION TITLE */
+            .sec-title {
+                font-family: 'Cinzel',serif;
+                font-size: 1em;
+                color: var(--white);
+                background: linear-gradient(135deg,#5b2d8e,#7b4db4);
+                border-radius: 10px;
+                padding: 12px 18px;
+                margin: 44px 0 18px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                scroll-margin-top: 56px;
+            }
+
+            /* DAY SECTION HEADER */
+            .day-header {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                padding: 13px 18px;
+                border-bottom: 1.5px solid var(--border);
+                border-radius: 12px 12px 0 0;
+                border-radius: 10px 10px 0 0;
+            }
+
+            .day-header .day-emoji {
+                font-size: 2em;
+            }
+
+            .day-header .day-info h3 {
+                font-family: 'Cinzel',serif;
+                font-size: 1em;
+                font-weight: 700;
+                margin-bottom: 2px;
+            }
+
+            .day-header .day-info p {
+                font-size: .75em;
+                color: var(--muted);
+            }
+
+            /* CARD */
+            .card {
+                background: var(--white);
+                border-radius: 12px;
+                border: 1.5px solid var(--border);
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                box-shadow: 0 2px 8px rgba(91,45,142,.06);
+                margin-bottom: 22px;
+                scroll-margin-top: 56px;
+            }
+
+            /* TABLE */
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                min-width: 520px;
+            }
+
+            th {
+                font-family: 'Cinzel',serif;
+                font-size: .72em;
+                font-weight: 700;
+                padding: 9px 11px;
+                text-align: left;
+                letter-spacing: .3px;
+                border-bottom: 2px solid var(--border);
+            }
+
+            td {
+                padding: 10px 11px;
+                border-bottom: 1px solid #f0eafa;
+                font-size: .84em;
+                vertical-align: top;
+                line-height: 1.6;
+            }
+
+            tr:last-child td {
+                border-bottom: none;
+            }
+
+            tr:hover td {
+                background: #faf7ff;
+            }
+
+            /* TYPE BADGES */
+            .tb {
+                display: inline-block;
+                padding: 2px 8px;
+                border-radius: 6px;
+                font-size: .68em;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: .3px;
+                white-space: nowrap;
+                margin-bottom: 2px;
+            }
+
+            .t-arghya {
+                background: #fff3cd;
+                color: #856404;
+            }
+
+            .t-beej {
+                background: #ede7f6;
+                color: #4a148c;
+            }
+
+            .t-gayatri {
+                background: #e3f2fd;
+                color: #0d47a1;
+            }
+
+            .t-stotra {
+                background: #e0f7fa;
+                color: #006064;
+            }
+
+            .t-mantra {
+                background: #f3e5f5;
+                color: #6a1b9a;
+            }
+
+            .t-exercise {
+                background: #e8f5e9;
+                color: #1b5e20;
+            }
+
+            .t-sleep {
+                background: #e8eaf6;
+                color: #283593;
+            }
+
+            .t-fast {
+                background: #fce4ec;
+                color: #880e4f;
+            }
+
+            .t-donate {
+                background: #fff8e1;
+                color: #e65100;
+            }
+
+            .t-seva {
+                background: #e8f5e9;
+                color: #2e7d32;
+            }
+
+            .t-skill {
+                background: #e0f2f1;
+                color: #004d40;
+            }
+
+            .t-gemstone {
+                background: #fff3e0;
+                color: #bf360c;
+            }
+
+            /* MANTRA HIGHLIGHT */
+            .mbeej {
+                display: inline-block;
+                font-style: italic;
+                font-weight: 700;
+                color: #4a148c;
+                background: linear-gradient(135deg,#ede7f6,#d8ccf0);
+                padding: 4px 10px;
+                border-radius: 6px;
+                font-size: .92em;
+                border-left: 3px solid #7b4db4;
+                margin: 3px 0;
+                line-height: 1.5;
+            }
+
+            .mgayatri {
+                display: inline-block;
+                font-style: italic;
+                font-weight: 600;
+                color: #0d47a1;
+                background: linear-gradient(135deg,#e3f2fd,#c8e0fa);
+                padding: 4px 10px;
+                border-radius: 6px;
+                font-size: .9em;
+                border-left: 3px solid #1976d2;
+                margin: 3px 0;
+                line-height: 1.5;
+            }
+
+            .mstotra {
+                display: inline-block;
+                font-style: italic;
+                font-weight: 600;
+                color: #006064;
+                background: #e0f7fa;
+                padding: 4px 10px;
+                border-radius: 6px;
+                font-size: .9em;
+                border-left: 3px solid #00acc1;
+                margin: 3px 0;
+                line-height: 1.5;
+            }
+
+            .mmantra {
+                display: inline-block;
+                font-style: italic;
+                font-weight: 600;
+                color: #6a1b9a;
+                background: #f3e5f5;
+                padding: 4px 10px;
+                border-radius: 6px;
+                font-size: .9em;
+                border-left: 3px solid #ab47bc;
+                margin: 3px 0;
+                line-height: 1.5;
+            }
+
+            /* SRC BADGE */
+            .src-11r {
+                background: #d4edda;
+                color: #155724;
+                padding: 2px 7px;
+                border-radius: 10px;
+                font-size: .68em;
+                font-weight: 700;
+                white-space: nowrap;
+            }
+
+            .src-d60 {
+                background: #cfe2ff;
+                color: #084298;
+                padding: 2px 7px;
+                border-radius: 10px;
+                font-size: .68em;
+                font-weight: 700;
+                white-space: nowrap;
+            }
+
+            .src-both {
+                background: #fff3cd;
+                color: #856404;
+                padding: 2px 7px;
+                border-radius: 10px;
+                font-size: .68em;
+                font-weight: 700;
+                white-space: nowrap;
+            }
+
+            /* COUNT BADGE */
+            .cc {
+                background: var(--pur-bg);
+                color: var(--pur-l);
+                font-weight: 700;
+                font-size: .75em;
+                padding: 3px 9px;
+                border-radius: 9px;
+                white-space: nowrap;
+                display: inline-block;
+            }
+
+            .cc-red {
+                background: var(--red-bg);
+                color: var(--red);
+                font-weight: 700;
+                font-size: .75em;
+                padding: 3px 9px;
+                border-radius: 9px;
+                white-space: nowrap;
+                display: inline-block;
+            }
+
+            /* DIVIDER between daily and weekly rows */
+            .divider-row td {
+                background: linear-gradient(90deg,#f0eafa,#e8e0f5);
+                font-family: 'Cinzel',serif;
+                font-size: .72em;
+                font-weight: 700;
+                color: var(--pur);
+                padding: 6px 11px;
+                letter-spacing: .5px;
+            }
+
+            /* HIGHLIGHT NOTE */
+            .hl {
+                background: rgba(212,160,23,.1);
+                border-left: 3px solid var(--gold-l);
+                padding: 5px 9px;
+                border-radius: 0 6px 6px 0;
+                margin: 4px 0;
+                font-size: .85em;
+                color: #6a4800;
+                line-height: 1.5;
+            }
+
+            .hl-red {
+                background: rgba(192,57,43,.07);
+                border-left: 3px solid var(--red);
+                padding: 5px 9px;
+                border-radius: 0 6px 6px 0;
+                margin: 4px 0;
+                font-size: .85em;
+                color: var(--red);
+            }
+
+            .new-badge {
+                background: #1a7a3e;
+                color: #fff;
+                font-size: .65em;
+                font-weight: 700;
+                padding: 2px 7px;
+                border-radius: 10px;
+                letter-spacing: .3px;
+                vertical-align: middle;
+            }
+
+            .urgent {
+                background: var(--red);
+                color: #fff;
+                font-size: .65em;
+                font-weight: 700;
+                padding: 2px 7px;
+                border-radius: 10px;
+                letter-spacing: .3px;
+            }
+
+            .peak {
+                background: #1a4fa0;
+                color: #fff;
+                font-size: .65em;
+                font-weight: 700;
+                padding: 2px 7px;
+                border-radius: 10px;
+                letter-spacing: .3px;
+            }
+
+            /* PLANET COL */
+            .pl {
+                font-size: .8em;
+                font-weight: 600;
+                color: var(--pur);
+            }
+
+            /* TH COLOURS */
+            .th-time {
+                background: #fff8e7;
+                color: #856404;
+            }
+
+            .th-type {
+                background: #f5f0ff;
+                color: #4a148c;
+            }
+
+            .th-act {
+                background: #f0fff4;
+                color: #1b5e20;
+            }
+
+            .th-pl {
+                background: #f0f6ff;
+                color: #0d47a1;
+            }
+
+            .th-cnt {
+                background: #fff0f5;
+                color: #880e4f;
+            }
+
+            .th-src {
+                background: #e8f5e9;
+                color: #155724;
+            }
+
+            /* PRIORITY GRID */
+            .pgrid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+                gap: 12px;
+                margin-top: 8px;
+            }
+
+            .pbox {
+                background: var(--white);
+                border: 1.5px solid var(--border);
+                border-radius: 11px;
+                padding: 14px 16px;
+                display: flex;
+                gap: 11px;
+                align-items: flex-start;
+            }
+
+            .pnum {
+                width: 30px;
+                height: 30px;
+                background: linear-gradient(135deg,#5b2d8e,#7b4db4);
+                color: #fff;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 700;
+                font-size: .85em;
+                flex-shrink: 0;
+                margin-top: 2px;
+            }
+
+            .ptxt strong {
+                color: var(--pur);
+                display: block;
+                margin-bottom: 3px;
+                font-size: .88em;
+            }
+
+            .ptxt span {
+                font-size: .8em;
+                color: var(--muted);
+            }
+
+            .fnote {
+                background: var(--gold-bg);
+                border: 1.5px solid var(--gold-border);
+                border-radius: 11px;
+                padding: 15px 18px;
+                text-align: center;
+                margin-top: 36px;
+                font-size: .84em;
+                color: #7a5a00;
+            }
+
+            .footer {
+                text-align: center;
+                padding: 24px 16px;
+                border-top: 2px solid var(--border);
+                color: var(--muted);
+                font-size: .76em;
+                background: var(--white);
+                margin-top: 32px;
+            }
+
+            .scroll-hint {
+                display: none;
+                font-size: .7em;
+                color: var(--muted);
+                text-align: right;
+                padding: 2px 8px 4px;
+                letter-spacing: .3px;
+            }
+
+            @media(max-width: 600px) {
+                .scroll-hint {
+                    display:block;
+                }
+            }
+
+            @media(max-width: 600px) {
+                .container {
+                    padding:16px 10px 50px;
+                }
+
+                .day-strip {
+                    grid-template-columns: repeat(4,1fr);
+                }
+
+                .day-btn .dname {
+                    font-size: .56em;
+                }
+
+                th {
+                    font-size: .66em;
+                    padding: 7px 8px;
+                }
+
+                td {
+                    font-size: .78em;
+                    padding: 8px 8px;
+                }
+
+                .hero h1 {
+                    font-size: 1.3em;
+                }
+
+                .mbeej,.mgayatri,.mstotra,.mmantra {
+                    font-size: .84em;
+                }
+
+                .nav a {
+                    font-size: .62em;
+                    padding: 9px 7px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="hero">
+            <h1>🔱 Final Remedy &amp;Mantra Stack — V2</h1>
+            <div class="sub">Darshan · Sagittarius Lagna · 11 Reports + D-60 Analysis · April 2026</div>
+            <div class="chip">19 April 1985 · 11:45 PM · Hubli · Moon 0°59' Aries · Amavasya Birth</div>
+        </div>
+        <div class="notice">
+            ✅ <strong>Final Locked.</strong>
+            Sources: 11-Report stack (11R) + D-60 Shastiamsa analysis (D-60). Zero content removed from V1-Unified. Mantras highlighted throughout. Src column retained on every row.
+        </div>
+        <nav class="nav">
+            <a href="#today">📅 Today</a>
+            <a href="#sun">☀ Sun</a>
+            <a href="#mon">🌙 Mon</a>
+            <a href="#tue">♂ Tue</a>
+            <a href="#wed">☿ Wed</a>
+            <a href="#thu">🪐 Thu</a>
+            <a href="#fri">♀ Fri</a>
+            <a href="#sat">♄ Sat</a>
+            <a href="#monthly">🌑 Monthly</a>
+            <a href="#onetime">📌 One-Time</a>
+            <a href="#purash">🔢 Purashcharana</a>
+            <a href="#gems">💎 Gemstones</a>
+            <a href="#priority">⭐ Priority</a>
+        </nav>
+        <div class="container">
+            <!-- TODAY STRIP -->
+            <div class="today-wrap" id="today">
+                <div class="today-title">📅 What Do I Do TODAY — Tap your day to jump directly</div>
+                <div class="day-strip">
+                    <a href="#sun" class="day-btn d-sun-btn">
+                        <span class="emoji">☀️</span>
+                        <span class="dname">Sunday</span>
+                        <span class="dsub">Daily only</span>
+                    </a>
+                    <a href="#mon" class="day-btn d-mon-btn">
+                        <span class="emoji">🌙</span>
+                        <span class="dname">Monday</span>
+                        <span class="dsub">Moon day</span>
+                    </a>
+                    <a href="#tue" class="day-btn d-tue-btn">
+                        <span class="emoji">♂️</span>
+                        <span class="dname">Tuesday</span>
+                        <span class="dsub">Mars day</span>
+                    </a>
+                    <a href="#wed" class="day-btn d-wed-btn">
+                        <span class="emoji">☿</span>
+                        <span class="dname">Wednesday</span>
+                        <span class="dsub">Mercury day</span>
+                    </a>
+                    <a href="#thu" class="day-btn d-thu-btn">
+                        <span class="emoji">🪐</span>
+                        <span class="dname">Thursday</span>
+                        <span class="dsub">Jupiter day</span>
+                    </a>
+                    <a href="#fri" class="day-btn d-fri-btn">
+                        <span class="emoji">♀️</span>
+                        <span class="dname">Friday</span>
+                        <span class="dsub">Venus day</span>
+                    </a>
+                    <a href="#sat" class="day-btn d-sat-btn">
+                        <span class="emoji">♄</span>
+                        <span class="dname">Saturday</span>
+                        <span class="dsub">Saturn day</span>
+                    </a>
+                </div>
+            </div>
+            <!-- HELPER MACRO for day tables -->
+            <!-- DAILY ROWS repeated in each day -->
+            <!-- ═══ SUNDAY ═══ -->
+            <div class="sec-title" id="sun">☀️ Sunday — Daily Stack Only · Sun Enhanced</div>
+            <div class="scroll-hint">← Swipe to scroll →</div>
+            <div class="card">
+                <div class="day-header" style="background:linear-gradient(135deg,#fff9f0,#fff3cd);">
+                    <span class="day-emoji">☀️</span>
+                    <div class="day-info">
+                        <h3 style="color:#856404;">Sunday</h3>
+                        <p>Daily stack only · Surya Arghya extended to 21x today · Rest day permitted but morning structure mandatory</p>
+                    </div>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="th-time">Time</th>
+                            <th class="th-type">Type</th>
+                            <th class="th-act">Practice / Action</th>
+                            <th class="th-pl">Planet</th>
+                            <th class="th-cnt">Count</th>
+                            <th class="th-src">Src</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>🌅 Sunrise</td>
+                            <td>
+                                <span class="tb t-arghya">Arghya</span>
+                            </td>
+                            <td>
+                                ☀️ Surya Arghya — face East, cup hands, let water pour over rim toward rising sun<br>
+                                <span class="mbeej">Om Hrim Hraum Suryaya Namaha</span>
+                                <span class="mbeej">ॐ हराम हरिम ह्रौं सह सूर्याय नमः.</span>
+                                × <strong>21x today</strong>
+                                (enhanced — Sunday only)<br>
+                                Follow with 5–12 Surya Namaskar. Sun exalted at 120.24% Shadbala. Do not skip.<div class="hl">⭐ 21x on Sunday only. All other days 12x.</div>
+                            </td>
+                            <td class="pl">☀️ Sun</td>
+                            <td>
+                                <span class="cc">
+                                    21x Sunday<br>12x other days
+                                </span>
+                            </td>
+                            <td>
+                                <span class="src-11r">11R</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>🌅 6:30 AM</td>
+                            <td>
+                                <span class="tb t-beej">Beej</span>
+                            </td>
+                            <td>
+                                🐘 Ganesha Mantra — touch Siddhi Ganapati Yantra, light sandalwood incense<br>
+                                <span class="mbeej">Om Gam Ganapataye Namaha</span>
+                                <span class="mbeej">ॐ गं गणपतये नमः</span>
+                                × 108 — use mala<br>
+                                5 min silence after. Intention: <em>"Remove obstacle between my skills and the world's recognition."</em>
+                            </td>
+                            <td class="pl">🐘 Ganesha</td>
+                            <td>
+                                <span class="cc">108x</span>
+                            </td>
+                            <td>
+                                <span class="src-11r">11R</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>🌅 7:00 AM</td>
+                            <td>
+                                <span class="tb t-stotra">Stotra</span>
+                            </td>
+                            <td>
+                                🚩 Hanuman Chalisa × 1 full recitation<br>Primary Rahu H5 / Bharani remedy. Addresses 3 AM overthinking and anxiety.
+                            </td>
+                            <td class="pl">🚩 Hanuman</td>
+                            <td>
+                                <span class="cc">1x</span>
+                            </td>
+                            <td>
+                                <span class="src-11r">11R</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>🌅 7:20 AM</td>
+                            <td>
+                                <span class="tb t-mantra">Mantra</span>
+                            </td>
+                            <td>
+                                <span class="mmantra">Om Tryambakam Yajamahe Sugandhim Pushtivardhanam, Urvarukamiva Bandhanan Mrityor Mukshiya Maamritat</span>
+                                <span class="mmantra">ॐ त्र्यम्बकं यजामहे सुगन्धिं पुष्टिवर्धनम् | उर्वारुकमिव बन्धनान्मृत्योर्मुक्षीय माऽमृतात् ||</span>
+                                <br>
+                                Mrityunjaya — for Kaal deity on D-60 Lagna lord Jupiter <span class="new-badge">NEW D-60</span>
+                            </td>
+                            <td class="pl">🪐 Jupiter</td>
+                            <td>
+                                <span class="cc">21x</span>
+                            </td>
+                            <td>
+                                <span class="src-d60">D-60</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>🏋 12–1 PM</td>
+                            <td>
+                                <span class="tb t-exercise">Exercise</span>
+                            </td>
+                            <td>
+                                🏋️ Physical Exercise — 30–45 min minimum. Walking, gym, yoga, run, cycling.<br>This is the primary Mars remedy. Mars at 190.47% Shadbala — undischarged = anxiety, self-sabotage. No rest days.
+                            </td>
+                            <td class="pl">♂ Mars</td>
+                            <td>
+                                <span class="cc">30–45 min</span>
+                            </td>
+                            <td>
+                                <span class="src-11r">11R</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>🌙 10:00 PM</td>
+                            <td>
+                                <span class="tb t-sleep">Sleep</span>
+                            </td>
+                            <td>
+                                🌙 Screens off 10:00 PM · Sleep by 10:30 PM<br>Write 3 journal sentences before sleep (Brahma Yoga activation). Saturn H12 + Moon gandanta: one missed night becomes ten. The structure is the medicine.
+                            </td>
+                            <td class="pl">🌙 Moon / ♄ Saturn</td>
+                            <td>
+                                <span class="cc-red">Non-neg.</span>
+                            </td>
+                            <td>
+                                <span class="src-11r">11R</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- ═══ MONDAY ═══ -->
+            <div class="sec-title" id="mon">🌙 Monday — Moon Day · MD Lord · Rakshasa Amsha</div>
+            <div class="scroll-hint">← Swipe to scroll →</div>
+            <div class="card">
+                <div class="day-header" style="background:linear-gradient(135deg,#f0fcff,#d8f5fa);">
+                    <span class="day-emoji">🌙</span>
+                    <div class="day-info">
+                        <h3 style="color:#0c5460;">Monday</h3>
+                        <p>Moon — 8th lord · Current MD lord · Rakshasa amsha D-60 · Gandanta 0°59' Aries · Most emotionally demanding day</p>
+                    </div>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="th-time">Time</th>
+                            <th class="th-type">Type</th>
+                            <th class="th-act">Practice / Action</th>
+                            <th class="th-pl">Planet</th>
+                            <th class="th-cnt">Count</th>
+                            <th class="th-src">Src</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="divider-row">
+                            <td colspan="6">— DAILY NON-NEGOTIABLE STACK (every day) —</td>
+                        </tr>
+                        <tr>
+                            <td>🌅 Sunrise</td>
+                            <td>
+                                <span class="tb t-arghya">Arghya</span>
+                            </td>
+                            <td>
+                                ☀️ Surya Arghya — face East, cup hands, let water pour over rim toward rising sun<br>
+                                <span class="mbeej">Om Hrim Hraum Suryaya Namaha</span>
+                                <span class="mbeej">ॐ हराम हरिम ह्रौं सह सूर्याय नमः.</span>
+                                × 12 while pouring<br>Follow with 5–12 Surya Namaskar. Sun exalted at 120.24% Shadbala. Do not skip — highest-cost daily error.
+                            </td>
+                            <td class="pl">☀️ Sun</td>
+                            <td>
+                                <span class="cc">12x</span>
+                            </td>
+                            <td>
+                                <span class="src-11r">11R</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>🌅 6:30 AM</td>
+                            <td>
+                                <span class="tb t-beej">Beej</span>
+                            </td>
+                            <td>
+                                🐘 Ganesha Mantra — touch Siddhi Ganapati Yantra, light sandalwood incense<br>
+                                <span class="mbeej">Om Gam Ganapataye Namaha</span>
+                                <span class="mbeej">ॐ गं गणपतये नमः</span>
+                                × 108 — use mala<br>
+                                5 min silence after. Intention: <em>"Remove obstacle between my skills and the world's recognition."</em>
+                            </td>
+                            <td class="pl">🐘 Ganesha</td>
+                            <td>
+                                <span class="cc">108x</span>
+                            </td>
+                            <td>
+                                <span class="src-11r">11R</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>🌅 7:00 AM</td>
+                            <td>
+                                <span class="tb t-stotra">Stotra</span>
+                            </td>
+                            <td>
+                                🚩 Hanuman Chalisa × 1 full recitation<br>Primary Rahu H5 / Bharani remedy. Addresses 3 AM overthinking and anxiety. 3x on Saturdays during Rahu PD until Jun 20, 2026.
+                            </td>
+                            <td class="pl">🚩 Hanuman</td>
+                            <td>
+                                <span class="cc">1x</span>
+                            </td>
+                            <td>
+                                <span class="src-11r">11R</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>🌅 7:20 AM</td>
+                            <td>
+                                <span class="tb t-mantra">Mantra</span>
+                            </td>
+                            <td>
+                                <span class="mmantra">Om Tryambakam Yajamahe Sugandhim Pushtivardhanam, Urvarukamiva Bandhanan Mrityor Mukshiya Maamritat</span>
+                                <span class="mmantra">ॐ त्र्यम्बकं यजामहे सुगन्धिं पुष्टिवर्धनम् | उर्वारुकमिव बन्धनान्मृत्योर्मुक्षीय माऽमृतात् ||</span>
+                                <br>
+                                Mrityunjaya — for Kaal deity on D-60 Lagna lord Jupiter <span class="new-badge">NEW D-60</span>
+                            </td>
+                            <td class="pl">🪐 Jupiter</td>
+                            <td>
+                                <span class="cc">21x</span>
+                            </td>
+                            <td>
+                                <span class="src-d60">D-60</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>🏋 12–1 PM</td>
+                            <td>
+                                <span class="tb t-exercise">Exercise</span>
+                            </td>
+                            <td>
+                                🏋️ Physical Exercise — 30–45 min minimum. Walking, gym, yoga, run, cycling.<br>This is the primary Mars remedy. Mars at 190.47% Shadbala — undischarged = anxiety, self-sabotage. No rest days.
+                            </td>
+                            <td class="pl">♂ Mars</td>
+                            <td>
+                                <span class="cc">30–45 min</span>
+                            </td>
+                            <td>
+                                <span class="src-11r">11R</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>🌙 10:00 PM</td>
+                            <td>
+                                <span class="tb t-sleep">Sleep</span>
+                            </td>
+                            <td>
+                                🌙 Screens off 10:00 PM · Sleep by 10:30 PM<br>Write 3 journal sentences before sleep (Brahma Yoga activation).
+                            </td>
+                            <td class="pl">🌙 Moon / ♄</td>
+                            <td>
+                                <span class="cc-red">Non-neg.</span>
+                            </td>
+                            <td>
+                                <span class="src-11r">11R</span>
+                            </td>
+                        </tr>
+                        <tr class="divider-row">
+                            <td colspan="6">— MONDAY ADDITIONS —</td>
+                        </tr>
+                        <tr>
+                            <td>🌅 Morning</td>
+                            <td>
+                                <span class="tb t-beej">Beej</span>
+                            </td>
+                            <td>
+                                <span class="mbeej">Om Shraam Shreem Shraum Sah Chandramase Namah</span>
+                                <span class="mbeej">ॐ श्रां श्रीं श्रौं सः चन्द्रमसे नमः</span>
+                                -Revert to 108x Monday, Moon hora
+
+                                <br>
+                                <span class="mbeej">Om Som Somaya Namaha</span>
+                                <span class="mbeej">ॐ सोम सोमाय नमः</span>
+                                — during Moon hora
+                            </td>
+                            <td class="pl">🌙 Moon</td>
+                            <td>
+                                <span class="cc">11,000x</span>
+                                <br>
+                                <span class="cc">108x</span>
+                            </td>
+                            <td>
+                                <span class="src-11r">11R</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>🌅 Morning</td>
+                            <td>
+                                <span class="tb t-gayatri">Gayatri</span>
+                            </td>
+                            <td>
+                                <span class="mgayatri">Om Kshirputraya Vidmahe, Amrit Tattvaya Dhimahi, Tanno Chandrah Prachodayat</span>
+                            </td>
+                            <td class="pl">🌙 Moon</td>
+                            <td>
+                                <span class="cc">108x</span>
+                            </td>
+                            <td>
+                                <span class="src-d60">D-60</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>🕐 All Day</td>
+                            <td>
+                                <span class="tb t-fast">Fast</span>
+                            </td>
+                            <td>
+                                Fast or eat only white foods — rice, milk, curd, coconut<br>Drink water from silver glass. Wear white or silver clothing if possible.
+                            </td>
+                            <td class="pl">🌙 Moon</td>
+                            <td>
+                                <span class="cc">Weekly</span>
+                            </td>
+                            <td>
+                                <span class="src-11r">11R</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>🌆 Evening</td>
+                            <td>
+                                <span class="tb t-stotra">Stotra</span>
+                            </td>
+                            <td>
+                                <span class="mstotra">Argala Stotram (Devi Mahatmyam)</span>
+                                — 1x full recitation <span class="new-badge">NEW D-60</span>
+                                <br>
+                                Offer raw milk + white flowers to Shiva Linga<br>Specifically prescribed for Rakshasa amsha Moon (D-60).
+                            </td>
+                            <td class="pl">🌙 Moon</td>
+                            <td>
+                                <span class="cc">1x full</span>
+                            </td>
+                            <td>
+                                <span class="src-d60">D-60</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- ═══ TUESDAY ═══ -->
+            <div class="sec-title" id="tue">♂️ Tuesday — Mars Day · Daily Stack Only</div>
+            <div class="scroll-hint">← Swipe to scroll →</div>
+            <div class="card">
+                <div class="day-header" style="background:linear-gradient(135deg,#fff5f5,#fde8e8);">
+                    <span class="day-emoji">♂️</span>
+                    <div class="day-info">
+                        <h3 style="color:#c0392b;">Tuesday</h3>
+                        <p>Mars day · Daily stack only · Physical exercise on Tuesday IS the Mars remedy — treat the workout as Tuesday's ritual</p>
+                    </div>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="th-time">Time</th>
+                            <th class="th-type">Type</th>
+                            <th class="th-act">Practice / Action</th>
+                            <th class="th-pl">Planet</th>
+                            <th class="th-cnt">Count</th>
+                            <th class="th-src">Src</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="divider-row">
+                            <td colspan="6">— DAILY NON-NEGOTIABLE STACK (every day) —</td>
+                        </tr>
+                        <tr>
+                            <td>🌅 Sunrise</td>
+                            <td>
+                                <span class="tb t-arghya">Arghya</span>
+                            </td>
+                            <td>
+                                ☀️ Surya Arghya — face East, cup hands, let water pour over rim toward rising sun<br>
+                                <span class="mbeej">Om Hrim Hraum Suryaya Namaha</span>
+                                <span class="mbeej">ॐ हराम हरिम ह्रौं सह सूर्याय नमः.</span>
+                                × 12 while pouring<br>Follow with 5–12 Surya Namaskar. Sun exalted at 120.24% Shadbala. Do not skip — highest-cost daily error.
+                            </td>
+                            <td class="pl">☀️ Sun</td>
+                            <td>
+                                <span class="cc">12x</span>
+                            </td>
+                            <td>
+                                <span class="src-11r">11R</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>🌅 6:30 AM</td>
+                            <td>
+                                <span class="tb t-beej">Beej</span>
+                            </td>
+                            <td>
+                                🐘 Ganesha Mantra — touch Siddhi Ganapati Yantra, light sandalwood incense<br>
+                                <span class="mbeej">Om Gam Ganapataye Namaha</span>
+                                <span class="mbeej">ॐ गं गणपतये नमः</span>
+                                × 108 — use mala<br>
+                                5 min silence after. Intention: <em>"Remove obstacle between my skills and the world's recognition."</em>
+                            </td>
+                            <td class="pl">🐘 Ganesha</td>
+                            <td>
+                                <span class="cc">108x</span>
+                            </td>
+                            <td>
+                                <span class="src-11r">11R</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>🌅 7:00 AM</td>
+                            <td>
+                                <span class="tb t-stotra">Stotra</span>
+                            </td>
+                            <td>
+                                🚩 Hanuman Chalisa × 1 full recitation<br>Primary Rahu H5 / Bharani remedy.
+                            </td>
+                            <td class="pl">🚩 Hanuman</td>
+                            <td>
+                                <span class="cc">1x</span>
+                            </td>
+                            <td>
+                                <span class="src-11r">11R</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>🌅 7:20 AM</td>
+                            <td>
+                                <span class="tb t-mantra">Mantra</span>
+                            </td>
+                            <td>
+                                <span class="mmantra">Om Tryambakam Yajamahe Sugandhim Pushtivardhanam, Urvarukamiva Bandhanan Mrityor Mukshiya Maamritat</span>
+                                <span class="mmantra">ॐ त्र्यम्बकं यजामहे सुगन्धिं पुष्टिवर्धनम् |
+उर्वारुकमिव बन्धनान्मृत्योर्मुक्षीय माऽमृतात् ||</span>
+                                × 21 — Mrityunjaya <span class="new-badge">D-60</span>
+                            </td>
+                            <td class="pl">🪐 Jupiter</td>
+                            <td>
+                                <span class="cc">21x</span>
+                            </td>
+                            <td>
+                                <span class="src-d60">D-60</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>🏋 12–1 PM</td>
+                            <td>
+                                <span class="tb t-exercise">Exercise</span>
+                            </td>
+                            <td>
+                                🏋️ Physical Exercise — 30–45 min minimum.<div class="hl">⭐ Tuesday workout = the Mars ritual. Extra intensity today if possible. Mars at 190.47% Shadbala must be discharged physically every day.</div>
+                            </td>
+                            <td class="pl">♂ Mars</td>
+                            <td>
+                                <span class="cc">30–45 min</span>
+                            </td>
+                            <td>
+                                <span class="src-11r">11R</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>🌙 10:00 PM</td>
+                            <td>
+                                <span class="tb t-sleep">Sleep</span>
+                            </td>
+                            <td>🌙 Screens off 10:00 PM · Sleep by 10:30 PM · 3-sentence journal.</td>
+                            <td class="pl">🌙 Moon / ♄</td>
+                            <td>
+                                <span class="cc-red">Non-neg.</span>
+                            </td>
+                            <td>
+                                <span class="src-11r">11R</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- ═══ WEDNESDAY ═══ -->
+            <div class="sec-title" id="wed">☿ Wednesday — Mercury Day · Maha Yogada · Career Planet</div>
+            <div class="scroll-hint">← Swipe to scroll →</div>
+            <div class="card">
+                <div class="day-header" style="background:linear-gradient(135deg,#f0fff4,#d4f5e0);">
+                    <span class="day-emoji">☿</span>
+                    <div class="day-info">
+                        <h3 style="color:#155724;">Wednesday</h3>
+                        <p>Mercury — Maha Yogada · Debilitated in Pisces · Ghora amsha D-60 · Career delivery planet · Highest priority mid-week</p>
+                    </div>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="th-time">Time</th>
+                            <th class="th-type">Type</th>
+                            <th class="th-act">Practice / Action</th>
+                            <th class="th-pl">Planet</th>
+                            <th class="th-cnt">Count</th>
+                            <th class="th-src">Src</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="divider-row">
+                            <td colspan="6">— DAILY NON-NEGOTIABLE STACK (every day) —</td>
+                        </tr>
+                        <tr>
+                            <td>🌅 Sunrise</td>
+                            <td>
+                                <span class="tb t-arghya">Arghya</span>
+                            </td>
+                            <td>
+                                ☀️ Surya Arghya — face East, cup hands, let water pour over rim toward rising sun<br>
+                                <span class="mbeej">Om Hrim Hraum Suryaya Namaha</span>
+                                <span class="mbeej">ॐ हराम हरिम ह्रौं सह सूर्याय नमः.</span>
+                                × 12 while pouring<br>Follow with 5–12 Surya Namaskar. Do not skip — highest-cost daily error.
+                            </td>
+                            <td class="pl">☀️ Sun</td>
+                            <td>
+                                <span class="cc">12x</span>
+                            </td>
+                            <td>
+                                <span class="src-11r">11R</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>🌅 6:30 AM</td>
+                            <td>
+                                <span class="tb t-beej">Beej</span>
+                            </td>
+                            <td>
+                                🐘 Ganesha Mantra — touch Siddhi Ganapati Yantra, light sandalwood incense<br>
+                                <span class="mbeej">Om Gam Ganapataye Namaha</span>
+                                <span class="mbeej">ॐ गं गणपतये नमः</span>
+                                × 108 — use mala. 5 min silence after.
+                            </td>
+                            <td class="pl">🐘 Ganesha</td>
+                            <td>
+                                <span class="cc">108x</span>
+                            </td>
+                            <td>
+                                <span class="src-11r">11R</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>🌅 7:00 AM</td>
+                            <td>
+                                <span class="tb t-stotra">Stotra</span>
+                            </td>
+                            <td>🚩 Hanuman Chalisa × 1 full recitation</td>
+                            <td class="pl">🚩 Hanuman</td>
+                            <td>
+                                <span class="cc">1x</span>
+                            </td>
+                            <td>
+                                <span class="src-11r">11R</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>🌅 7:20 AM</td>
+                            <td>
+                                <span class="tb t-mantra">Mantra</span>
+                            </td>
+                            <td>
+                                <span class="mmantra">Om Tryambakam Yajamahe Sugandhim Pushtivardhanam, Urvarukamiva Bandhanan Mrityor Mukshiya Maamritat</span>
+                                <span class="mmantra">ॐ त्र्यम्बकं यजामहे सुगन्धिं पुष्टिवर्धनम् | उर्वारुकमिव बन्धनान्मृत्योर्मुक्षीय माऽमृतात् ||</span>
+                                × 21 — Mrityunjaya <span class="new-badge">D-60</span>
+                            </td>
+                            <td class="pl">🪐 Jupiter</td>
+                            <td>
+                                <span class="cc">21x</span>
+                            </td>
+                            <td>
+                                <span class="src-d60">D-60</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>🏋 12–1 PM</td>
+                            <td>
+                                <span class="tb t-exercise">Exercise</span>
+                            </td>
+                            <td>🏋️ Physical Exercise — 30–45 min minimum.</td>
+                            <td class="pl">♂ Mars</td>
+                            <td>
+                                <span class="cc">30–45 min</span>
+                            </td>
+                            <td>
+                                <span class="src-11r">11R</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>🌙 10:00 PM</td>
+                            <td>
+                                <span class="tb t-sleep">Sleep</span>
+                            </td>
+                            <td>🌙 Screens off 10:00 PM · Sleep by 10:30 PM · 3-sentence journal.</td>
+                            <td class="pl">🌙 Moon / ♄</td>
+                            <td>
+                                <span class="cc-red">Non-neg.</span>
+                            </td>
+                            <td>
+                                <span class="src-11r">11R</span>
+                            </td>
+                        </tr>
+                        <tr class="divider-row">
+                            <td colspan="6">— WEDNESDAY ADDITIONS —</td>
+                        </tr>
+                        <tr>
+                            <td>🌅 7–10 AM</td>
+                            <td>
+                                <span class="tb t-beej">Beej</span>
+                            </td>
+                            <td>
+                                <span class="mbeej">Om Braam Breem Braum Sah Budhaya Namah</span>
+                                <span class="mbeej">ॐ ब्रां ब्रीं ब्रौं सः बुधाय नमः</span> - Revert to 27x Wednesday Mercury hora
+                                <br>
+                                <span class="mbeej">Om Bum Budhaya Namaha</span>
+                                <span class="mbeej">ॐ बुं बुधाय नमः</span>
+                                — during Mercury hora 7–10 AM Hubli only
+                            </td>
+                            <td class="pl">☿ Mercury</td>
+                            <td>
+                                <span class="cc">17,000x</span>
+                                <br>
+                                <span class="cc">27x</span>
+                            </td>
+                            <td>
+                                <span class="src-11r">11R</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>🌅 Morning</td>
+                            <td>
+                                <span class="tb t-gayatri">Gayatri</span>
+                            </td>
+                            <td>
+                                <span class="mgayatri">Om Gajadhwajaya Vidmahe, Sukha Hastaya Dhimahi, Tanno Budhah Prachodayat</span>
+                                <span class="mgayatri">ॐ गजध्वजाय विद्महे सुख हस्ताय धीमहि तन्नो बुधः प्रचोदयात्॥
+</span>
+                            </td>
+                            <td class="pl">☿ Mercury</td>
+                            <td>
+                                <span class="cc">108x</span>
+                            </td>
+                            <td>
+                                <span class="src-d60">D-60</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>🌤 Morning</td>
+                            <td>
+                                <span class="tb t-donate">Donate</span>
+                            </td>
+                            <td>Donate green moong dal, green vegetables, or green clothing · Feed parrots</td>
+                            <td class="pl">☿ Mercury</td>
+                            <td>
+                                <span class="cc">Weekly</span>
+                            </td>
+                            <td>
+                                <span class="src-11r">11R</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>🕐 Any</td>
+                            <td>
+                                <span class="tb t-skill">Skill</span>
+                            </td>
+                            <td>
+                                Deep analytical writing or skill-building — min. 1 hour<br>
+                                Mercury Maha Yogada activates only through expertise under pressure. All professional emails and applications this morning.<div class="hl">Mercury hora 2–5 PM: all written professional emails and follow-ups.</div>
+                            </td>
+                            <td class="pl">☿ Mercury</td>
+                            <td>
+                                <span class="cc">1 hr min</span>
+                            </td>
+                            <td>
+                                <span class="src-both">Both</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- ═══ THURSDAY ═══ -->
+            <div class="sec-title" id="thu">🪐 Thursday — Jupiter Day · Lagna Lord · AK · Peak Career Window</div>
+            <div class="scroll-hint">← Swipe to scroll →</div>
+            <div class="card">
+                <div class="day-header" style="background:linear-gradient(135deg,#fffdf0,#fff8d0);">
+                    <span class="day-emoji">🪐</span>
+                    <div class="day-info">
+                        <h3 style="color:#856404;">Thursday</h3>
+                        <p>Jupiter — Lagna lord + Atmakaraka · Debilitated Capricorn · Neecha Bhanga Raja Yoga · PD lord from Jun 20, 2026 · HIGHEST PRIORITY DAY</p>
+                    </div>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="th-time">Time</th>
+                            <th class="th-type">Type</th>
+                            <th class="th-act">Practice / Action</th>
+                            <th class="th-pl">Planet</th>
+                            <th class="th-cnt">Count</th>
+                            <th class="th-src">Src</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="divider-row">
+                            <td colspan="6">— DAILY NON-NEGOTIABLE STACK (every day) —</td>
+                        </tr>
+                        <tr>
+                            <td>🌅 Sunrise</td>
+                            <td>
+                                <span class="tb t-arghya">Arghya</span>
+                            </td>
+                            <td>
+                                ☀️ Surya Arghya — face East, cup hands, let water pour over rim toward rising sun<br>
+                                <span class="mbeej">Om Hrim Hraum Suryaya Namaha</span>
+                                <span class="mbeej">ॐ हराम हरिम ह्रौं सह सूर्याय नमः.</span>
+                                × 12 while pouring<br>Follow with 5–12 Surya Namaskar. Do not skip — highest-cost daily error.
+                            </td>
+                            <td class="pl">☀️ Sun</td>
+                            <td>
+                                <span class="cc">12x</span>
+                            </td>
+                            <td>
+                                <span class="src-11r">11R</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>🌅 6:30 AM</td>
+                            <td>
+                                <span class="tb t-beej">Beej</span>
+                            </td>
+                            <td>
+                                🐘 Ganesha Mantra — touch Siddhi Ganapati Yantra, light sandalwood incense<br>
+                                <span class="mbeej">Om Gam Ganapataye Namaha</span>
+                                <span class="mbeej">ॐ गं गणपतये नमः</span>
+                                × 108. 5 min silence after.
+                            </td>
+                            <td class="pl">🐘 Ganesha</td>
+                            <td>
+                                <span class="cc">108x</span>
+                            </td>
+                            <td>
+                                <span class="src-11r">11R</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>🌅 7:00 AM</td>
+                            <td>
+                                <span class="tb t-stotra">Stotra</span>
+                            </td>
+                            <td>🚩 Hanuman Chalisa × 1 full recitation</td>
+                            <td class="pl">🚩 Hanuman</td>
+                            <td>
+                                <span class="cc">1x</span>
+                            </td>
+                            <td>
+                                <span class="src-11r">11R</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>🌅 7:20 AM</td>
+                            <td>
+                                <span class="tb t-mantra">Mantra</span>
+                            </td>
+                            <td>
+                                <span class="mmantra">Om Tryambakam Yajamahe Sugandhim Pushtivardhanam, Urvarukamiva Bandhanan Mrityor Mukshiya Maamritat</span>
+                                <span class="mmantra">ॐ त्र्यम्बकं यजामहे सुगन्धिं पुष्टिवर्धनम् | उर्वारुकमिव बन्धनान्मृत्योर्मुक्षीय माऽमृतात् ||</span>
+                                × 21 — Mrityunjaya <span class="new-badge">D-60</span>
+                            </td>
+                            <td class="pl">🪐 Jupiter</td>
+                            <td>
+                                <span class="cc">21x</span>
+                            </td>
+                            <td>
+                                <span class="src-d60">D-60</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>🏋 12–1 PM</td>
+                            <td>
+                                <span class="tb t-exercise">Exercise</span>
+                            </td>
+                            <td>🏋️ Physical Exercise — 30–45 min minimum.</td>
+                            <td class="pl">♂ Mars</td>
+                            <td>
+                                <span class="cc">30–45 min</span>
+                            </td>
+                            <td>
+                                <span class="src-11r">11R</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>🌙 10:00 PM</td>
+                            <td>
+                                <span class="tb t-sleep">Sleep</span>
+                            </td>
+                            <td>🌙 Screens off 10:00 PM · Sleep by 10:30 PM · 3-sentence journal.</td>
+                            <td class="pl">🌙 Moon / ♄</td>
+                            <td>
+                                <span class="cc-red">Non-neg.</span>
+                            </td>
+                            <td>
+                                <span class="src-11r">11R</span>
+                            </td>
+                        </tr>
+                        <tr class="divider-row">
+                            <td colspan="6">— THURSDAY ADDITIONS —</td>
+                        </tr>
+                        <tr>
+                            <td>🌄 Before Sunrise</td>
+                            <td>
+                                <span class="tb t-gayatri">Gayatri</span>
+                            </td>
+                            <td>
+                                <span class="mgayatri">Om VrishabhDhwajay Vidmahe KaruniHastay Dheemahi। Tanno Guru: Prachodayat!</span>
+                                <span class="mgayatri">ॐ वृषभध्वजाय विद्महे करुणिहस्ताय धीमहि। तन्नो गुरु: प्रचोदयात्! </span>
+                            </td>
+                            <td class="pl">🪐 Jupiter</td>
+                            <td>
+                                <span class="cc">108x</span>
+                            </td>
+                            <td>
+                                <span class="src-d60">D-60</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>🌄 6–10 AM</td>
+                            <td>
+                                <span class="tb t-beej">Beej</span>
+                            </td>
+                            <td>
+                                <span class="mbeej">Om Graam Greem Graum Sah Gurave Namah</span>
+                                <span class="mbeej">ॐ ग्रां ग्रीं ग्रौं सः गुरुवे नमः</span>-Revert to 19x Thursday Jupiter hora
+                                <br>
+                                <span class="mbeej">Om Brim Brihaspataye Namaha</span>
+                                <span class="mbeej">ॐ बृं बृहस्पतये नमः </span>
+                                — Jupiter hora 6–10 AM<div class="hl">⭐ ALL career-critical actions in this window: senior applications, outreach, negotiations, interviews. Most important weekly career slot in this chart. Jupiter PD Jun 20–Sep 12, 2026 = your peak. Every Thursday Jupiter hora missed = missed activation.</div>
+                            </td>
+                            <td class="pl">🪐 Jupiter</td>
+                            <td>
+                                <span class="cc">19,000x</span>
+                                <br>
+                                <span class="cc">19x</span>
+                            </td>
+                            <td>
+                                <span class="src-11r">11R</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>🌤 Morning</td>
+                            <td>
+                                <span class="tb t-donate">Donate</span>
+                            </td>
+                            <td>Donate chana dal, turmeric, yellow flowers · Wear yellow thread or clothing · Feed crows yellow food</td>
+                            <td class="pl">🪐 Jupiter</td>
+                            <td>
+                                <span class="cc">Weekly</span>
+                            </td>
+                            <td>
+                                <span class="src-11r">11R</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>🕐 Any</td>
+                            <td>
+                                <span class="tb t-seva">Seva</span>
+                            </td>
+                            <td>
+                                Serve a teacher, guru, or elderly person without expectation<br>Donate to an educational cause or temple.
+                            </td>
+                            <td class="pl">🪐 Jupiter</td>
+                            <td>
+                                <span class="cc">Weekly</span>
+                            </td>
+                            <td>
+                                <span class="src-both">Both</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- ═══ FRIDAY ═══ -->
+            <div class="sec-title" id="fri">♀️ Friday — Venus Day · 20-Year MD Lord · Yama Amsha</div>
+            <div class="scroll-hint">← Swipe to scroll →</div>
+            <div class="card">
+                <div class="day-header" style="background:linear-gradient(135deg,#fff0f8,#fce4ec);">
+                    <span class="day-emoji">♀️</span>
+                    <div class="day-info">
+                        <h3 style="color:#880e4f;">Friday</h3>
+                        <p>Venus — 5th + 10th lord · 20-year Mahadasha lord · Retrograde · Exalted 12th house · Yama amsha D-60 · Activates the 20-year MD channel</p>
+                    </div>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="th-time">Time</th>
+                            <th class="th-type">Type</th>
+                            <th class="th-act">Practice / Action</th>
+                            <th class="th-pl">Planet</th>
+                            <th class="th-cnt">Count</th>
+                            <th class="th-src">Src</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="divider-row">
+                            <td colspan="6">— DAILY NON-NEGOTIABLE STACK (every day) —</td>
+                        </tr>
+                        <tr>
+                            <td>🌅 Sunrise</td>
+                            <td>
+                                <span class="tb t-arghya">Arghya</span>
+                            </td>
+                            <td>
+                                ☀️ Surya Arghya — face East, cup hands, let water pour over rim toward rising sun<br>
+                                <span class="mbeej">Om Hrim Hraum Suryaya Namaha</span>
+                                <span class="mbeej">ॐ हराम हरिम ह्रौं सह सूर्याय नमः.</span>
+                                × 12 while pouring<br>Follow with 5–12 Surya Namaskar. Do not skip — highest-cost daily error.
+                            </td>
+                            <td class="pl">☀️ Sun</td>
+                            <td>
+                                <span class="cc">12x</span>
+                            </td>
+                            <td>
+                                <span class="src-11r">11R</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>🌅 6:30 AM</td>
+                            <td>
+                                <span class="tb t-beej">Beej</span>
+                            </td>
+                            <td>
+                                🐘 Ganesha Mantra — touch Siddhi Ganapati Yantra, light sandalwood incense<br>
+                                <span class="mbeej">Om Gam Ganapataye Namaha</span>
+                                <span class="mbeej">ॐ गं गणपतये नमः</span>
+                                × 108. 5 min silence after.
+                            </td>
+                            <td class="pl">🐘 Ganesha</td>
+                            <td>
+                                <span class="cc">108x</span>
+                            </td>
+                            <td>
+                                <span class="src-11r">11R</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>🌅 7:00 AM</td>
+                            <td>
+                                <span class="tb t-stotra">Stotra</span>
+                            </td>
+                            <td>🚩 Hanuman Chalisa × 1 full recitation</td>
+                            <td class="pl">🚩 Hanuman</td>
+                            <td>
+                                <span class="cc">1x</span>
+                            </td>
+                            <td>
+                                <span class="src-11r">11R</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>🌅 7:20 AM</td>
+                            <td>
+                                <span class="tb t-mantra">Mantra</span>
+                            </td>
+                            <td>
+                                <span class="mmantra">Om Tryambakam Yajamahe Sugandhim Pushtivardhanam, Urvarukamiva Bandhanan Mrityor Mukshiya Maamritat</span>
+                                <span class="mmantra">ॐ त्र्यम्बकं यजामहे सुगन्धिं पुष्टिवर्धनम् | उर्वारुकमिव बन्धनान्मृत्योर्मुक्षीय माऽमृतात् ||</span>
+                                × 21 — Mrityunjaya <span class="new-badge">D-60</span>
+                            </td>
+                            <td class="pl">🪐 Jupiter</td>
+                            <td>
+                                <span class="cc">21x</span>
+                            </td>
+                            <td>
+                                <span class="src-d60">D-60</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>🏋 12–1 PM</td>
+                            <td>
+                                <span class="tb t-exercise">Exercise</span>
+                            </td>
+                            <td>🏋️ Physical Exercise — 30–45 min minimum.</td>
+                            <td class="pl">♂ Mars</td>
+                            <td>
+                                <span class="cc">30–45 min</span>
+                            </td>
+                            <td>
+                                <span class="src-11r">11R</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>🌙 10:00 PM</td>
+                            <td>
+                                <span class="tb t-sleep">Sleep</span>
+                            </td>
+                            <td>🌙 Screens off 10:00 PM · Sleep by 10:30 PM · 3-sentence journal.</td>
+                            <td class="pl">🌙 Moon / ♄</td>
+                            <td>
+                                <span class="cc-red">Non-neg.</span>
+                            </td>
+                            <td>
+                                <span class="src-11r">11R</span>
+                            </td>
+                        </tr>
+                        <tr class="divider-row">
+                            <td colspan="6">— FRIDAY ADDITIONS —</td>
+                        </tr>
+                        <tr>
+                            <td>🌅 Morning</td>
+                            <td>
+                                <span class="tb t-gayatri">Gayatri</span>
+                            </td>
+                            <td>
+                                <span class="mgayatri">Om Draam Dreem Draum Sah Shukraya Namah</span>
+                                <span class="mgayatri">ॐ द्रां द्रीं द्रौं सः शुक्राय नमः</span> After 16K-Revert to Gayatri on Fridays
+                                <br>
+                                <span class="mgayatri">Om Ashwadhwajaya Vidmahe, Dhanur Hastaya Dhimahi, Tanno Shukrah Prachodayat</span>
+                                <span class="mgayatri">ॐ अश्वध्वजाय विद्महे धनुर्हस्ताय धीमहि तन्नः शुक्रः प्रचोदयात्</span>
+                            </td>
+                            <td class="pl">♀ Venus</td>
+                            <td>
+                                <span class="cc">16,000x</span>
+                                <br>
+                                <span class="cc">108x</span>
+                            </td>
+                            <td>
+                                <span class="src-d60">D-60</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>🌤 Morning</td>
+                            <td>
+                                <span class="tb t-donate">Donate</span>
+                            </td>
+                            <td>Donate white sweets, white cloth, silver items · Feed white cows if accessible</td>
+                            <td class="pl">♀ Venus</td>
+                            <td>
+                                <span class="cc">Weekly</span>
+                            </td>
+                            <td>
+                                <span class="src-d60">D-60</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>🌆 Evening</td>
+                            <td>
+                                <span class="tb t-stotra">Stotra</span>
+                            </td>
+                            <td>
+                                Light ghee lamp. Recite <span class="mstotra">Lakshmi Ashtakam</span>
+                                — 1x full recitation <span class="new-badge">NEW D-60</span>
+                                <br>Yama amsha Venus (20-year MD lord) responds specifically to Lakshmi devotion and dharmic conduct.
+                            </td>
+                            <td class="pl">♀ Venus</td>
+                            <td>
+                                <span class="cc">1x full</span>
+                            </td>
+                            <td>
+                                <span class="src-d60">D-60</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>🌄 Venus Hora</td>
+                            <td>
+                                <span class="tb t-gemstone">Gemstone</span>
+                            </td>
+                            <td>Once worn: White Sapphire or Opal in silver — energize on Friday Venus hora</td>
+                            <td class="pl">♀ Venus</td>
+                            <td>
+                                <span class="cc">Ongoing</span>
+                            </td>
+                            <td>
+                                <span class="src-d60">D-60</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- ═══ SATURDAY ═══ -->
+            <div class="sec-title" id="sat">♄ Saturday — Saturn Day · Transit Suppressor · Rahu/Ketu Remedy</div>
+            <div class="scroll-hint">← Swipe to scroll →</div>
+            <div class="card">
+                <div class="day-header" style="background:linear-gradient(135deg,#f5f5f5,#ebebeb);">
+                    <span class="day-emoji">♄</span>
+                    <div class="day-info">
+                        <h3 style="color:#333;">Saturday</h3>
+                        <p>Saturn — Retrograde · H12 · Soumya amsha D-60 · Transit suppressor over Mercury-Venus · Rahu PD until Jun 20, 2026 · Also nodal axis remedy day</p>
+                    </div>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="th-time">Time</th>
+                            <th class="th-type">Type</th>
+                            <th class="th-act">Practice / Action</th>
+                            <th class="th-pl">Planet</th>
+                            <th class="th-cnt">Count</th>
+                            <th class="th-src">Src</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="divider-row">
+                            <td colspan="6">— DAILY NON-NEGOTIABLE STACK (every day) —</td>
+                        </tr>
+                        <tr>
+                            <td>🌅 Sunrise</td>
+                            <td>
+                                <span class="tb t-arghya">Arghya</span>
+                            </td>
+                            <td>
+                                ☀️ Surya Arghya — face East, cup hands, let water pour over rim toward rising sun<br>
+                                <span class="mbeej">Om Hrim Hraum Suryaya Namaha</span>
+                                <span class="mbeej">ॐ हराम हरिम ह्रौं सह सूर्याय नमः.</span>
+                                × 12 while pouring<br>Follow with 5–12 Surya Namaskar. Do not skip — highest-cost daily error.
+                            </td>
+                            <td class="pl">☀️ Sun</td>
+                            <td>
+                                <span class="cc">12x</span>
+                            </td>
+                            <td>
+                                <span class="src-11r">11R</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>🌅 6:30 AM</td>
+                            <td>
+                                <span class="tb t-beej">Beej</span>
+                            </td>
+                            <td>
+                                🐘 Ganesha Mantra — touch Siddhi Ganapati Yantra, light sandalwood incense<br>
+                                <span class="mbeej">Om Gam Ganapataye Namaha</span>
+                                <span class="mbeej">ॐ गं गणपतये नमः</span>
+                                × 108. 5 min silence after.
+                            </td>
+                            <td class="pl">🐘 Ganesha</td>
+                            <td>
+                                <span class="cc">108x</span>
+                            </td>
+                            <td>
+                                <span class="src-11r">11R</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>🌅 7:00 AM</td>
+                            <td>
+                                <span class="tb t-stotra">Stotra</span>
+                            </td>
+                            <td>🚩 Hanuman Chalisa × 1 full recitation</td>
+                            <td class="pl">🚩 Hanuman</td>
+                            <td>
+                                <span class="cc">1x</span>
+                            </td>
+                            <td>
+                                <span class="src-11r">11R</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>🌅 7:20 AM</td>
+                            <td>
+                                <span class="tb t-mantra">Mantra</span>
+                            </td>
+                            <td>
+                                <span class="mmantra">Om Tryambakam Yajamahe Sugandhim Pushtivardhanam, Urvarukamiva Bandhanan Mrityor Mukshiya Maamritat</span>
+                                <span class="mmantra">ॐ त्र्यम्बकं यजामहे सुगन्धिं पुष्टिवर्धनम् | उर्वारुकमिव बन्धनान्मृत्योर्मुक्षीय माऽमृतात् ||</span>
+                                × 21 — Mrityunjaya <span class="new-badge">D-60</span>
+                            </td>
+                            <td class="pl">🪐 Jupiter</td>
+                            <td>
+                                <span class="cc">21x</span>
+                            </td>
+                            <td>
+                                <span class="src-d60">D-60</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>🏋 12–1 PM</td>
+                            <td>
+                                <span class="tb t-exercise">Exercise</span>
+                            </td>
+                            <td>🏋️ Physical Exercise — 30–45 min minimum.</td>
+                            <td class="pl">♂ Mars</td>
+                            <td>
+                                <span class="cc">30–45 min</span>
+                            </td>
+                            <td>
+                                <span class="src-11r">11R</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>🌙 10:00 PM</td>
+                            <td>
+                                <span class="tb t-sleep">Sleep</span>
+                            </td>
+                            <td>🌙 Screens off 10:00 PM · Sleep by 10:30 PM · 3-sentence journal.</td>
+                            <td class="pl">🌙 Moon / ♄</td>
+                            <td>
+                                <span class="cc-red">Non-neg.</span>
+                            </td>
+                            <td>
+                                <span class="src-11r">11R</span>
+                            </td>
+                        </tr>
+                        <tr class="divider-row">
+                            <td colspan="6">— SATURDAY ADDITIONS —</td>
+                        </tr>
+                        <tr>
+                            <td>🌅 Sunrise</td>
+                            <td>
+                                <span class="tb t-beej">Beej</span>
+                            </td>
+                            <td>
+                                <span class="mbeej">Om Praam Preem Praum Sah Shanaischaraya Namah</span>
+                                <span class="mbeej">ॐ प्रां प्रीं प्रौं सः शनैश्चराय नमः</span>-Revert to 19x Saturday Saturn hora
+                                <br>
+                                <span class="mbeej">Om Sham Shanaishcharaya Namaha</span>
+                                <span class="mbeej">ॐ शं शनैश्चराय नमः</span>
+                                — Saturn hora at sunrise
+                            </td>
+                            <td class="pl">♄ Saturn</td>
+                            <td>
+                                <span class="cc">23,000x</span>
+                                ,<br>
+                                <span class="cc">21x</span>
+                            </td>
+                            <td>
+                                <span class="src-11r">11R</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>🌅 Morning</td>
+                            <td>
+                                <span class="tb t-gayatri">Gayatri</span>
+                            </td>
+                            <td>
+                                <span class="mgayatri">Om Kakadwajaya Vidmahe, Khadga Hastaya Dhimahi, Tanno Mandah Prachodayat</span>
+                                <span class="mgayatri">ॐ काकध्वजाय विद्महे खड्गहस्ताय धीमहि तन्नो मन्दः प्रचोदयात॥</span>
+                            </td>
+                            <td class="pl">♄ Saturn</td>
+                            <td>
+                                <span class="cc">108x</span>
+                            </td>
+                            <td>
+                                <span class="src-d60">D-60</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>🌤 Morning</td>
+                            <td>
+                                <span class="tb t-donate">Donate</span>
+                            </td>
+                            <td>
+                                Donate black sesame (til), mustard oil, black cloth to poor or temple<br>Feed black dogs and crows · Sesame oil lamp at Shani temple
+                            </td>
+                            <td class="pl">♄ Saturn</td>
+                            <td>
+                                <span class="cc">Weekly</span>
+                            </td>
+                            <td>
+                                <span class="src-both">Both</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>🌅 Morning</td>
+                            <td>
+                                <span class="tb t-stotra">Stotra</span>
+                            </td>
+                            <td>
+                                🚩 Hanuman Chalisa × 3 (extended from daily 1x — 4x total today) — during Rahu PD until Jun 20, 2026<br>Donate sesame oil at Hanuman temple (Ketu H11 income-suppression remedy)
+                            </td>
+                            <td class="pl">♄ Saturn / Rahu</td>
+                            <td>
+                                <span class="cc">3x extra = 4x today</span>
+                            </td>
+                            <td>
+                                <span class="src-11r">11R</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>🕌 Any</td>
+                            <td>
+                                <span class="tb t-seva">Seva</span>
+                            </td>
+                            <td>
+                                Selfless service — serve the poor, disabled, or elderly without expectation<br>Saturn H12 retrograde responds only to unconditional, invisible service.
+                            </td>
+                            <td class="pl">♄ Saturn</td>
+                            <td>
+                                <span class="cc">Weekly</span>
+                            </td>
+                            <td>
+                                <span class="src-11r">11R</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- ═══ MONTHLY ═══ -->
+            <div class="sec-title" id="monthly">🌑 Monthly Rituals — Every Month Without Exception</div>
+            <div class="card">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="th-time" style="width:18%">Occasion</th>
+                            <th class="th-act" style="width:55%">Full Protocol</th>
+                            <th class="th-cnt" style="width:27%">Why Non-Negotiable</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <strong>Every Amavasya</strong>
+                                <br>
+                                (New Moon)<br>
+                                <br>
+                                <span style="font-size:.75em;color:var(--pur);">Pitru Tarpan</span>
+                            </td>
+                            <td>
+                                <ul style="padding-left:16px;font-size:.86em;line-height:1.8;">
+                                    <li>Face South. Cup both hands. Offer water 3 times letting it pour over right thumb. Repeat 3 cycles.</li>
+                                    <li>
+                                        <span class="mmantra">Om Pitru Devaya Namaha</span>
+                                        <span class="mmantra">ॐ पितृ देवाय नमः</span>
+                                        × 11 during water offering
+                                    </li>
+                                    <li>Light a sesame oil lamp facing South after offering</li>
+                                    <li>Donate food to elderly or Brahmins on first Amavasya of every month</li>
+                                </ul>
+                                <div class="hl-red">⚠️ Do NOT make major career or financial decisions on Amavasya days — Moon gandanta's poorest decision window.</div>
+                            </td>
+                            <td style="font-size:.82em;">Amavasya birth + Moon gandanta + 8th lord MD = highest ancestral karma load possible. Monthly Tarpan clears it systematically. Single most important monthly ritual for this chart.</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>
+                                    Every Sankashti<br>Chaturthi
+                                </strong>
+                                <br>
+                                <br>
+                                <span style="font-size:.75em;color:var(--pur);">Ganesha Fast</span>
+                            </td>
+                            <td>
+                                <ul style="padding-left:16px;font-size:.86em;line-height:1.8;">
+                                    <li>Fast from sunrise to moonrise — water and milk permitted, no food</li>
+                                    <li>
+                                        <span class="mbeej">Om Gam Ganapataye Namaha</span>
+                                        <span class="mbeej">ॐ गं गणपतये नमः</span>
+                                        × 1008 — spread across morning and evening sessions
+                                    </li>
+                                    <li>Visit Ganesha temple in evening. Break fast after moonrise.</li>
+                                    <li>Offer modak, durva grass, red flowers at temple</li>
+                                    <li>During Jupiter PD (Jun 20–Sep 12, 2026): extend to full Ganesha Stotra recitation in addition to 1008x</li>
+                                </ul>
+                            </td>
+                            <td style="font-size:.82em;">Most powerful monthly practice for Amavasya-born natives. Sankashti fast directly aligns with the chart's primary karmic requirement. Addresses employment gap obstacle at root.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- ═══ ONE-TIME ═══ -->
+            <div class="sec-title" id="onetime">📌 One-Time Dated Rituals — Book Now · Cannot Be Rescheduled</div>
+            <div class="card">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="th-time" style="width:14%">Date</th>
+                            <th style="width:7%;background:#f5f0ff;color:#4a148c;">Day</th>
+                            <th class="th-act" style="width:42%">Action</th>
+                            <th class="th-cnt" style="width:27%">Why Non-Negotiable</th>
+                            <th style="width:10%;background:#fff8e7;color:#856404;">Cost Est.</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="background:#fff5f5;">
+                            <td>
+                                <strong>Before Jun 2026</strong>
+                                <br>
+                                <span class="urgent">URGENT ⚡</span>
+                            </td>
+                            <td>Any</td>
+                            <td>
+                                ⭐ Pitru Tarpan at <strong>Trimbakeshwar, Nashik</strong>
+                                — full day with temple priest. Kala Sarpa puja included. <span class="new-badge">NEW D-60 + R16</span>
+                            </td>
+                            <td style="font-size:.8em;">Amavasya birth + Moon gandanta + 8th lord MD = ancestral karma as root cause of gap duration. Trimbakeshwar is India's strongest Pitru Dosha temple. Monthly Tarpan clears surface; this clears root.</td>
+                            <td>₹2,000–5,000 + travel</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>May 6, 2026</strong>
+                            </td>
+                            <td>Wed</td>
+                            <td>
+                                Install <strong>Siddhi Ganapati Yantra</strong>
+                                — Mercury hora (7–10 AM). East or NE facing. Home altar or study desk.
+                            </td>
+                            <td style="font-size:.8em;">Wednesday Mercury hora = ideal consecration muhurta. Install Ganesha first, always, before other yantras.</td>
+                            <td>₹500–2,000</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>May 13, 2026</strong>
+                            </td>
+                            <td>Wed</td>
+                            <td>
+                                Install <strong>Budha (Mercury) Yantra</strong>
+                                — Mercury hora. North direction on desk.
+                            </td>
+                            <td style="font-size:.8em;">Directly strengthens debilitated Mercury 10th lord. One week after Ganapati Yantra, not on same day.</td>
+                            <td>₹300–1,000</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>Jun 1, 2026</strong>
+                            </td>
+                            <td>Sun</td>
+                            <td>
+                                Install <strong>Surya Yantra</strong>
+                                — Surya hora at sunrise. East-facing wall.
+                            </td>
+                            <td style="font-size:.8em;">Activates exalted Sun (120.24% Shadbala). Sunday Surya hora at sunrise is the correct muhurta. Activates fortune and Raja Sambandha.</td>
+                            <td>₹300–1,000</td>
+                        </tr>
+                        <tr style="background:#fffdf0;">
+                            <td>
+                                <strong>Jun 17–18, 2026</strong>
+                                <br>
+                                <span class="peak">⭐ PEAK ACTION</span>
+                            </td>
+                            <td>Wed–Thu</td>
+                            <td>
+                                <strong>GANAPATI HOMA</strong>
+                                — at qualified Ganesha temple. 1008 ahutis of <span class="mbeej">Om Gam Ganapataye Namaha</span>
+                                <br>
+                                Sankalpa must include: career obstacle removal, employment establishment, Mercury Yogada activation, Ketu H11 income suppression removal.<br>
+                                <span style="color:var(--red);font-weight:700;">Book temple and priest TODAY. Do not wait.</span>
+                            </td>
+                            <td style="font-size:.8em;">3 days before Jupiter PD ignition Jun 20. Clears the Sandhi. Sets auspicious foundation for the peak Jun 20–Sep 12 window. Highest single ROI ritual of 2026.</td>
+                            <td>₹3,000–8,000</td>
+                        </tr>
+                        <tr style="background:#fffdf0;">
+                            <td>
+                                <strong>Jun 18–19, 2026</strong>
+                                <br>
+                                <span class="peak">⭐ WEAR</span>
+                            </td>
+                            <td>Thu</td>
+                            <td>
+                                Wear <strong>Yellow Sapphire (Pukhraj)</strong>
+                                — gold setting, right index finger. Consult qualified astrologer for carat/weight first.
+                            </td>
+                            <td style="font-size:.8em;">Jupiter lagna lord + AK. Worn just before Jupiter PD ignition Jun 20. Amplifies lagna lord energy during entire peak window.</td>
+                            <td>₹8,000–25,000</td>
+                        </tr>
+                        <tr style="background:#f0fff8;">
+                            <td>
+                                <strong>Sep 7, 2026</strong>
+                                <br>
+                                <span class="peak">⭐ INSIDE PEAK</span>
+                            </td>
+                            <td>Mon</td>
+                            <td>
+                                <strong>Ganesh Chaturthi</strong>
+                                — 1008x mantra, full temple puja, sponsor Ganapati Homa if possible.
+                            </td>
+                            <td style="font-size:.8em;">Falls INSIDE Jupiter PD (closes Sep 12). 5 days before PD ends. Occurs approximately every 12 years. Maximum Ganesha energy amplification during career peak.</td>
+                            <td>₹0–5,000</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>Sep 14–15, 2026</strong>
+                            </td>
+                            <td>Sun–Mon</td>
+                            <td>
+                                <strong>Navagraha Homa</strong>
+                                — extended ahutis for Mercury and Saturn specifically. Offer til for Saturn, green moong for Mercury. State this to priest explicitly.
+                            </td>
+                            <td style="font-size:.8em;">Jupiter PD closes Sep 12. Saturn PD begins Sep 12. This Homa bridges the transition — consolidates Jupiter PD gains, eases into Saturn PD. Targets the two planets under maximum stress.</td>
+                            <td>₹5,000–15,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- ═══ PURASHCHARANA ═══ -->
+            <div class="sec-title" id="purash">🔢 Purashcharana Targets — Do ONE at a Time · Sequential Order</div>
+            <div class="card">
+                <div style="background:#fffdf0;border-bottom:1.5px solid var(--border);padding:11px 16px;font-size:.84em;color:#7a5a00;">
+                    ⚠️ <strong>Rule:</strong>
+                    During a Purashcharana, recite the mantra daily until the total is complete, then revert to the weekday schedule. <strong>Do one at a time — do not run multiple Purashcharanas simultaneously.</strong>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width:6%;background:#f5f0ff;color:#4a148c;">Priority</th>
+                            <th class="th-pl" style="width:10%">Planet</th>
+                            <th class="th-act" style="width:36%">Mantra</th>
+                            <th class="th-cnt" style="width:8%">Target</th>
+                            <th style="width:10%;background:#fff8e7;color:#856404;">Start Day</th>
+                            <th style="width:10%;background:#fff0f5;color:#880e4f;">Deadline</th>
+                            <th class="th-src" style="width:20%">After Completion</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="text-align:center;font-weight:700;color:var(--red);">1st</td>
+                            <td class="pl">🪐 Jupiter</td>
+                            <td>
+                                <span class="mbeej">Om Graam Greem Graum Sah Gurave Namah</span>
+                                <span class="mbeej">ॐ ग्रां ग्रीं ग्रौं सः गुरुवे नमः</span>
+                            </td>
+                            <td>
+                                <span class="cc">19,000</span>
+                            </td>
+                            <td>Thursday</td>
+                            <td>Before Jun 2026 ⚡</td>
+                            <td style="font-size:.82em;">Revert to 19x Thursday Jupiter hora</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:center;font-weight:700;color:#0c5460;">2nd</td>
+                            <td class="pl">🌙 Moon</td>
+                            <td>
+                                <span class="mbeej">Om Shraam Shreem Shraum Sah Chandramase Namah</span>
+                                <span class="mbeej">ॐ श्रां श्रीं श्रौं सः चन्द्रमसे नमः</span>
+                            </td>
+                            <td>
+                                <span class="cc">11,000</span>
+                            </td>
+                            <td>Monday</td>
+                            <td>Before Jun 2026 ⚡</td>
+                            <td style="font-size:.82em;">Revert to 108x Monday</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:center;font-weight:700;color:#880e4f;">3rd</td>
+                            <td class="pl">♀ Venus</td>
+                            <td>
+                                <span class="mbeej">Om Draam Dreem Draum Sah Shukraya Namah</span>
+                                <span class="mbeej">ॐ द्रां द्रीं द्रौं सः शुक्राय नमः </span>
+                            </td>
+                            <td>
+                                <span class="cc">16,000</span>
+                            </td>
+                            <td>Friday</td>
+                            <td>By Dec 2026</td>
+                            <td style="font-size:.82em;">Revert to Gayatri on Fridays</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:center;font-weight:700;color:#155724;">4th</td>
+                            <td class="pl">☿ Mercury</td>
+                            <td>
+                                <span class="mbeej">Om Braam Breem Braum Sah Budhaya Namah</span>
+                                <span class="mbeej">ॐ ब्रां ब्रीं ब्रौं सः बुधाय नमः</span>
+                            </td>
+                            <td>
+                                <span class="cc">17,000</span>
+                            </td>
+                            <td>Wednesday</td>
+                            <td>By Dec 2026</td>
+                            <td style="font-size:.82em;">Revert to 27x Wednesday Mercury hora</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:center;font-weight:700;color:#333;">5th</td>
+                            <td class="pl">♄ Saturn</td>
+                            <td>
+                                <span class="mbeej">Om Praam Preem Praum Sah Shanaischaraya Namah</span>
+                                <span class="mbeej">ॐ प्रां प्रीं प्रौं सः शनैश्चराय नमः </span>
+                            </td>
+                            <td>
+                                <span class="cc">23,000</span>
+                            </td>
+                            <td>Saturday</td>
+                            <td>By Mar 2027</td>
+                            <td style="font-size:.82em;">Revert to 19x Saturday Saturn hora</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- ═══ GEMSTONES ═══ -->
+            <div class="sec-title" id="gems">💎 Gemstone Prescriptions</div>
+            <div class="card">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="th-act" style="width:20%">Gemstone</th>
+                            <th class="th-pl" style="width:12%">Planet</th>
+                            <th style="width:18%;background:#fff8e7;color:#856404;">Metal &amp;Finger</th>
+                            <th style="width:22%;background:#f0fff4;color:#1b5e20;">When to Wear</th>
+                            <th class="th-cnt" style="width:12%">Deadline</th>
+                            <th class="th-src" style="width:16%">Consult First?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <strong>Yellow Sapphire</strong>
+                                <br>(Pukhraj)
+                            </td>
+                            <td class="pl">🪐 Jupiter</td>
+                            <td>Gold · Right index finger</td>
+                            <td>Thursday, Jupiter hora, after Ganapati Homa Jun 17–18</td>
+                            <td>
+                                <span class="urgent">By Jun 19 ⚡</span>
+                            </td>
+                            <td style="font-size:.82em;">Yes — carat and quality check required</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>Emerald</strong>
+                                <br>(Panna)
+                            </td>
+                            <td class="pl">☿ Mercury</td>
+                            <td>Gold or Silver · Right little finger · min. 5 carats</td>
+                            <td>Wednesday, Mercury hora</td>
+                            <td>By Sep 2026</td>
+                            <td style="font-size:.82em;">Yes — Moon rules 8th; confirm compatibility</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>White Sapphire</strong>
+                                <br>or Opal
+                            </td>
+                            <td class="pl">♀ Venus</td>
+                            <td>Silver · Right little finger</td>
+                            <td>Friday, Venus hora</td>
+                            <td>Anytime</td>
+                            <td style="font-size:.82em;">Recommended</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- ═══ PRIORITY ═══ -->
+            <div class="sec-title" id="priority">⭐ Priority Stack — If You Can Only Do A Few</div>
+            <div class="pgrid">
+                <div class="pbox">
+                    <div class="pnum">1</div>
+                    <div class="ptxt">
+                        <strong>Surya Arghya + 12x Surya Mantra — Every Sunrise</strong>
+                        <span>Sun 120.24% Shadbala. Single highest-value daily action. Never skip even one day.</span>
+                    </div>
+                </div>
+                <div class="pbox">
+                    <div class="pnum">2</div>
+                    <div class="ptxt">
+                        <strong>108x Om Gam Ganapataye Namaha — Every Morning</strong>
+                        <span>Primary employment gap + Amavasya birth remedy. 5-min silence after is mandatory.</span>
+                    </div>
+                </div>
+                <div class="pbox">
+                    <div class="pnum">3</div>
+                    <div class="ptxt">
+                        <strong>Physical Exercise 30–45 min — Every Day</strong>
+                        <span>Mars at 190.47% Shadbala. Missing this costs more than missing any mantra.</span>
+                    </div>
+                </div>
+                <div class="pbox">
+                    <div class="pnum">4</div>
+                    <div class="ptxt">
+                        <strong>Sleep by 10:30 PM — Every Night</strong>
+                        <span>Moon gandanta + Saturn H12. Free, immediate, highest-ROI habit. Screens off 10 PM.</span>
+                    </div>
+                </div>
+                <div class="pbox">
+                    <div class="pnum">5</div>
+                    <div class="ptxt">
+                        <strong>Mrityunjaya 21x — Every Morning</strong>
+                        <span>Kaal deity on D-60 Jupiter (Lagna lord). Daily. D-60 addition.</span>
+                    </div>
+                </div>
+                <div class="pbox">
+                    <div class="pnum">6</div>
+                    <div class="ptxt">
+                        <strong>Lakshmi Ashtakam + Ghee Lamp — Every Friday Evening</strong>
+                        <span>Venus MD lord for 20 years. Yama amsha. Activates the 20-year MD blessing channel.</span>
+                    </div>
+                </div>
+                <div class="pbox">
+                    <div class="pnum">7</div>
+                    <div class="ptxt">
+                        <strong>Thursday Jupiter Hora 6–10 AM — Career Actions</strong>
+                        <span>Lagna lord + AK + Jupiter PD Jun 20–Sep 12. All senior applications here. Every Thursday missed = missed activation.</span>
+                    </div>
+                </div>
+                <div class="pbox">
+                    <div class="pnum">8</div>
+                    <div class="ptxt">
+                        <strong>Amavasya Pitru Tarpan — Every New Moon</strong>
+                        <span>Amavasya birth + 8th lord MD. Most important monthly ritual for this chart. Cannot be replaced.</span>
+                    </div>
+                </div>
+                <div class="pbox">
+                    <div class="pnum">9</div>
+                    <div class="ptxt">
+                        <strong>Ganapati Homa Jun 17–18 — Book Today</strong>
+                        <span>3 days before Jupiter PD ignition. Highest single ROI ritual of 2026. Book the temple now.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="fnote">
+                🔱 <strong>The One Rule That Overrides Everything:</strong>
+                The morning structure — Surya Arghya + 108x Ganesha + Mrityunjaya 21x + Hanuman Chalisa + physical exercise — runs <strong>every single day without exception</strong>
+                , regardless of mood, energy, or home chaos. Moon gandanta under Saturn transit: one unstructured day becomes three, then ten, then a month. The structure IS the medicine. <strong>December 2026 is the structural exit. January 2027 confirms it. The chart is not broken. It is executing.</strong>
+            </div>
+        </div>
+        <div class="footer">
+            <p>🔱 Final Remedy Stack V2 · Darshan · Compiled April 10, 2026</p>
+            <p style="margin-top:5px;">Sagittarius Lagna · Moon 0°59' Aries · Ashwini Nakshatra Pada 1 · Amavasya Birth · Hubli, Karnataka</p>
+            <p style="margin-top:5px;">
+                Sources: <span class="src-11r">11R</span>
+                = 11-Report Stack (primary) &nbsp;|&nbsp;<span class="src-d60">D-60</span>
+                = D-60 Shastiamsa Deity Analysis &nbsp;|&nbsp;<span class="src-both">Both</span>
+                = Confirmed in both
+            </p>
+            <p style="margin-top:8px;font-size:.74em;color:#bbb;">For guidance purposes only. Consult a qualified Jyotishi before wearing gemstones. All practices complement, not replace, practical action and ethical conduct.</p>
+        </div>
+    </body>
+</html>
