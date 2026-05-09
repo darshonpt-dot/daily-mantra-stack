@@ -2511,5 +2511,27 @@
             </p>
             <p style="margin-top:8px;font-size:.74em;color:#bbb;">For guidance purposes only. Consult a qualified Jyotishi before wearing gemstones. All practices complement, not replace, practical action and ethical conduct.</p>
         </div>
+<script>
+// auto-scroll #today to current day section
+(function(){
+  const map=['#sun','#mon','#tue','#wed','#thu','#fri','#sat'];
+  const target=map[new Date().getDay()];
+  // if page loaded with #today hash, scroll to current day
+  if(window.location.hash==='#today'||window.location.hash===''){
+    window.addEventListener('load',function(){
+      const el=document.querySelector(target);
+      if(el)el.scrollIntoView({behavior:'smooth'});
+    });
+  }
+  // also fix the Today nav link to always point to current day
+  document.querySelectorAll('a[href="#today"]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      e.preventDefault();
+      const el=document.querySelector(target);
+      if(el)el.scrollIntoView({behavior:'smooth'});
+    });
+  });
+})();
+</script>
     </body>
 </html>
